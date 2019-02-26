@@ -6,4 +6,5 @@
 
 - fix bug
 - 优化 front
-- 重写 backend
+- rust 重写 backend
+- 数据库采用 pg
