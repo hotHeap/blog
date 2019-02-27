@@ -5,3 +5,5 @@ authors = ["Uncho <sergeychang@gmail.com>"]
 edition = "2018"
 
 [dependencies]
+hyper = "0.12"
+actix-web = "0.7"
