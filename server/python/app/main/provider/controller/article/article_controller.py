@@ -1,12 +1,12 @@
 from flask import jsonify
 import logging
 from app.main.provider.utils.return_msg import ReturnMsg
-from app.main.provider import blog
+from . import article
 
 logger = logging.getLogger(__name__)
 
 
-@blog.route('/article/getList', methods=['GET', 'POST'])
+@article.route('/getList', methods=['GET', 'POST'])
 def get_list():
     '''
         获取文章列表
@@ -19,7 +19,7 @@ def get_list():
     return jsonify(return_msg.__dict__)
 
 
-@blog.route('/article/getAdminList', methods=['GET', 'POST'])
+@article.route('/getAdminList', methods=['GET', 'POST'])
 def get_admin_list():
     '''
         后台获取文章列表
@@ -32,7 +32,7 @@ def get_admin_list():
     return jsonify(return_msg.__dict__)
 
 
-@blog.route('/article/getOne', methods=['GET', 'POST'])
+@article.route('/getOne', methods=['GET', 'POST'])
 def get_one():
     '''
         获取文章
@@ -45,7 +45,7 @@ def get_one():
     return jsonify(return_msg.__dict__)
 
 
-@blog.route('/article/getPreOrNext', methods=['GET', 'POST'])
+@article.route('/getPreOrNext', methods=['GET', 'POST'])
 def get_pre_next():
     '''
         获取上一篇和下一篇文章
@@ -58,7 +58,7 @@ def get_pre_next():
     return jsonify(return_msg.__dict__)
 
 
-@blog.route('/article/getAdminOne', methods=['GET', 'POST'])
+@article.route('/getAdminOne', methods=['GET', 'POST'])
 def get_admin_one():
     '''
         后台获取文章
@@ -71,7 +71,7 @@ def get_admin_one():
     return jsonify(return_msg.__dict__)
 
 
-@blog.route('/article/update', methods=['GET', 'POST'])
+@article.route('/update', methods=['GET', 'POST'])
 def update():
     '''
         更新文章
@@ -84,7 +84,7 @@ def update():
     return jsonify(return_msg.__dict__)
 
 
-@blog.route('/article/save', methods=['GET', 'POST'])
+@article.route('/save', methods=['GET', 'POST'])
 def save():
     '''
         保存文章
@@ -97,7 +97,7 @@ def save():
     return jsonify(return_msg.__dict__)
 
 
-@blog.route('/article/delete', methods=['GET', 'POST'])
+@article.route('/delete', methods=['GET', 'POST'])
 def delete():
     '''
         删除文章
@@ -110,7 +110,7 @@ def delete():
     return jsonify(return_msg.__dict__)
 
 
-@blog.route('/article/updateLove')
+@article.route('/updateLove')
 def update_love():
     '''
         更新文章的喜欢字段
@@ -123,7 +123,7 @@ def update_love():
     return jsonify(return_msg.__dict__)
 
 
-@blog.route('/article/search')
+@article.route('/search')
 def search():
     '''
         检索文章
@@ -134,4 +134,3 @@ def search():
     return_msg.messege = 'sucess'
     return_msg.result = {}
     return jsonify(return_msg.__dict__)
-

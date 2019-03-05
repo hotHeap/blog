@@ -1,8 +1,6 @@
-from flask import Blueprint
+from app.main.provider.controller.article import Article
 
-blog = Blueprint('blog', __name__)
-
-from app.main.provider.controller import article_controller
+article_module = Article()
 
 
 class Blog(object):
@@ -13,4 +11,5 @@ class Blog(object):
 
     def init_app(self, app):
         self.app = app
-        app.register_blueprint(blog, url_prefix='/api')
+
+        article_module.init_app(app)

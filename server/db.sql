@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS `tag` (
 CREATE TABLE IF NOT EXISTS `role` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(128) NOT NULL DEFAULT '' COMMENT '角色名',
-  `op_user` varchar(20) NOT NULL DEFAULT '' COMMENT '操作人',
+  `op_user` bigint(20) NOT NULL DEFAULT '' COMMENT '操作人',
   `ctime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `mtime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
   PRIMARY KEY (`id`),

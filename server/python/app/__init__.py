@@ -14,7 +14,7 @@ from app.main.provider import Blog
 redis_store = FlaskRedis()
 
 # mysql 模块
-sql_db = SQLAlchemy()
+mysql_db = SQLAlchemy()
 
 # blog 模块
 blog_module = Blog()
@@ -27,7 +27,7 @@ def create_app(config_name):
     # 注册redis
     redis_store.init_app(app)
     # 注册数据库
-    sql_db.init_app(app)
+    mysql_db.init_app(app)
     create_table(app)
     # 注册blog
     blog_module.init_app(app)
@@ -35,7 +35,7 @@ def create_app(config_name):
 
 
 def create_table(app):
-    from app.main.provider.repository.model.ariticle import Article
+    from app.main.provider.repository.model import Article, Tag, Role, User, Comment, CommentReply
 
     with app.app_context():
-        sql_db.create_all()
+        mysql_db.create_all()
