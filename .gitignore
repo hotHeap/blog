@@ -5,3 +5,5 @@
 *.txt
 
 /front/node_nodule
+.DS_Store
+__pycache__
