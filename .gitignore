@@ -5,5 +5,7 @@
 *.txt
 
 /front/node_nodule
+server/rust/target
+
 .DS_Store
 __pycache__
