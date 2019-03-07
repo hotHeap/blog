@@ -4,7 +4,7 @@ from flask import Flask
 from flask_redis import FlaskRedis
 from flask_sqlalchemy import SQLAlchemy
 
-from config import config
+# from config import config
 
 current_path = os.path.abspath(os.path.dirname(__file__))
 
@@ -22,7 +22,7 @@ blog_module = Blog()
 
 def create_app(config_name):
     app = Flask(__name__, static_folder=os.path.join(current_path, 'resource'), static_url_path='/7ethan/static')
-    app.config.from_object(config[config_name])
+    app.config.from_pyfile(os.path.join(os.getcwd(), 'config.cfg'))
 
     # 注册redis
     redis_store.init_app(app)

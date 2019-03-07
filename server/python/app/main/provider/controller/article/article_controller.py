@@ -1,5 +1,6 @@
 from flask import jsonify
 import logging
+
 from app.main.provider.utils.return_msg import ReturnMsg
 from . import article
 
@@ -129,6 +130,36 @@ def search():
         检索文章
     :return:
     '''
+    return_msg = ReturnMsg()
+
+    return_msg.messege = 'sucess'
+    return_msg.result = {}
+    return jsonify(return_msg.__dict__)
+
+
+@article.route('/save_db')
+def save_db():
+    from app.main.provider.repository.model.ariticle import Article
+
+    article = Article()
+    article.title = '测试'
+    article.content = 'hello world'
+    article.uid = '1'
+    article.tag = 1
+    article.save()
+
+    return_msg = ReturnMsg()
+
+    return_msg.messege = 'sucess'
+    return_msg.result = {}
+    return jsonify(return_msg.__dict__)
+
+
+@article.route('/save_redis')
+def save_redis():
+    from app import redis_store
+
+    redis_store.set('test', 'cmr')
     return_msg = ReturnMsg()
 
     return_msg.messege = 'sucess'
