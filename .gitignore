@@ -1,8 +1,11 @@
 .idea
 .vscode
+dist
 
 # -
 *.txt
+
+
 
 /front/node_nodule
 server/rust/target
