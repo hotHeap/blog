@@ -7,7 +7,7 @@ dist
 
 
 
-/front/node_nodule
+/front/node_modules
 server/rust/target
 
 .DS_Store
