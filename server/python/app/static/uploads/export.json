@@ -1,0 +1,58 @@
+{
+  "random" : false,
+  "authPass" : null,
+  "useOnlinePac" : false,
+  "TTL" : 0,
+  "global" : false,
+  "reconnectTimes" : 3,
+  "index" : 0,
+  "proxyType" : 0,
+  "proxyHost" : null,
+  "authUser" : null,
+  "proxyAuthPass" : null,
+  "isDefault" : false,
+  "pacUrl" : null,
+  "configs" : [
+    {
+      "enable" : true,
+      "password" : "ZTk5YjUyZj",
+      "method" : "aes-256-cfb",
+      "remarks" : "磊磊",
+      "server" : "65.49.233.101",
+      "obfs" : "plain",
+      "protocol" : "origin",
+      "server_port" : 443,
+      "remarks_base64" : "56OK56OK"
+    },
+    {
+      "enable" : true,
+      "password" : "chenmoru",
+      "method" : "aes-256-cfb",
+      "remarks" : "mine",
+      "server" : "34.80.27.52",
+      "obfs" : "plain",
+      "protocol" : "origin",
+      "server_port" : 443,
+      "remarks_base64" : "bWluZQ=="
+    },
+    {
+      "enable" : true,
+      "password" : "NDUxZGRmMD",
+      "method" : "aes-128-cfb",
+      "remarks" : "公司",
+      "server" : "144.168.56.138",
+      "obfs" : "plain",
+      "protocol" : "origin",
+      "server_port" : 443,
+      "remarks_base64" : "5YWs5Y+4"
+    }
+  ],
+  "proxyPort" : 0,
+  "randomAlgorithm" : 0,
+  "proxyEnable" : false,
+  "enabled" : true,
+  "autoban" : false,
+  "proxyAuthUser" : null,
+  "shareOverLan" : false,
+  "localPort" : 1080
+}

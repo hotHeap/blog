@@ -8,12 +8,3 @@ class ReturnMsg(object):
     # 返回的信息
     messege = None
 
-
-if __name__ == '__main__':
-    import json
-    return_msg = ReturnMsg()
-    return_msg.result = {
-        'a': 1
-    }
-
-    print(return_msg.__dict__)

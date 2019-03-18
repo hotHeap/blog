@@ -4,11 +4,7 @@ from flask import Flask
 from flask_redis import FlaskRedis
 from flask_sqlalchemy import SQLAlchemy
 
-# from config import config
-
 current_path = os.path.abspath(os.path.dirname(__file__))
-
-from app.main.provider import Blog
 
 # redis模块
 redis_store = FlaskRedis()
@@ -17,25 +13,25 @@ redis_store = FlaskRedis()
 mysql_db = SQLAlchemy()
 
 # blog 模块
-blog_module = Blog()
+from app.main.provider.repository import Article, Tag, Role, User, Comment, CommentReply, article_tag
 
 
 def create_app(config_name):
-    app = Flask(__name__, static_folder=os.path.join(current_path, 'resource'), static_url_path='/7ethan/static')
-    app.config.from_pyfile(os.path.join(os.getcwd(), 'config.cfg'))
+    app = Flask(__name__, static_folder=os.path.join(current_path, 'static'), static_url_path='/static')
+    app.config.from_pyfile(os.path.join(os.getcwd(), config_name))
 
     # 注册redis
     redis_store.init_app(app)
     # 注册数据库
     mysql_db.init_app(app)
     create_table(app)
-    # 注册blog
-    blog_module.init_app(app)
+
+    from .main.provider.controller import api
+    app.register_blueprint(api, url_prefix='/api')
+
     return app
 
 
 def create_table(app):
-    from app.main.provider.repository.model import Article, Tag, Role, User, Comment, CommentReply
-
     with app.app_context():
         mysql_db.create_all()
