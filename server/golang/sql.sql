@@ -78,6 +78,7 @@ create TABLE IF NOT EXISTS `comment_reply`(
   PRIMARY KEY (`id`)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT '评论回复';
 
+
 create TABLE IF NOT EXISTS `privilege` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `op_user` bigint(20) NOT NULL DEFAULT 1 COMMENT '操作人',
