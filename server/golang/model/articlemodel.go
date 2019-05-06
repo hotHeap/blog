@@ -27,8 +27,8 @@ type (
 	}
 )
 
-func NewArticleModel(table string, conn sqlx.DB) *ArticleModel {
-	return &ArticleModel{SqlModel: NewConnectionModel(table, conn)}
+func NewArticleModel(conn sqlx.DB, table string) *ArticleModel {
+	return &ArticleModel{SqlModel: NewSqlModel(conn, table)}
 }
 
 func (am *ArticleModel) Insert(article *Article) (int64, error) {

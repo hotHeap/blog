@@ -4,13 +4,10 @@ import "github.com/jmoiron/sqlx"
 
 type (
 	CommentModel struct {
-		ModelConnection
+		*SqlModel
 	}
 )
 
-func NewCommentModel(table string,conn sqlx.DB) *CommentModel {
-	return &CommentModel{
-		table:table,
-
-	}
+func NewCommentModel(table string, conn sqlx.DB) *CommentModel {
+	return &CommentModel{SqlModel: NewSqlModel(conn, table)}
 }

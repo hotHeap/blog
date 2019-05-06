@@ -4,11 +4,11 @@ import "github.com/jmoiron/sqlx"
 
 type (
 	SqlModel struct {
-		table string
 		conn  sqlx.DB
+		table string
 	}
 )
 
-func NewConnectionModel(table string, conn sqlx.DB) *SqlModel {
+func NewSqlModel(conn sqlx.DB, table string) *SqlModel {
 	return &SqlModel{table: table, conn: conn}
 }
