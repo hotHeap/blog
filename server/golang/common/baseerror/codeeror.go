@@ -7,7 +7,12 @@ type CodeError struct {
 	message string `json:"message"`
 }
 
-func (ce *CodeError) Description() string {
+var (
+	InvalidParams = NewCodeError(10001,"参数有误")
+)
+
+// impl Error interface{}
+func (ce *CodeError) Error() string {
 	return fmt.Sprintf("Code is:%+v ,and Message:%+v", ce.code, ce.message)
 }
 
@@ -23,4 +28,11 @@ func NewCodeError(code int, message string) *CodeError {
 		code:    code,
 		message: message,
 	}
+}
+
+func FromError(err error) (codeErr *CodeError, ok bool) {
+	if se, ok := err.(*CodeError); ok {
+		return se, true
+	}
+	return nil, false
 }
