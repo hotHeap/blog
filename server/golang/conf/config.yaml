@@ -1,8 +1,17 @@
 runmode: debug                 # 开发模式, debug, release, test
 addr: :8080                  # HTTP绑定端口
-name: server              # API Server的名字
+name: blogserver              # API Server的名字
 url: http://127.0.0.1:8080   # pingServer函数请求的API服务器的ip:port
 max_ping_count: 10           # pingServer函数try的次数
 log:
   writers: file,stdout
-  logger_level: DEBUG
+db:
+  drivename: mysql
+  name: blog
+  address: 127.0.0.1:3306
+  username: root
+  password: xiaoxin
+# 数据库表
+schema:
+  article: article
+  user: user

@@ -8,7 +8,7 @@ type CodeError struct {
 }
 
 var (
-	InvalidParams = NewCodeError(10001,"参数有误")
+	InvalidParams = NewCodeError(10001, "参数有误")
 )
 
 // impl Error interface{}

@@ -13,15 +13,6 @@ var (
 	errServiceUnavailable = errors.New("服务器竟然开小差，一会儿再试试吧")
 )
 
-type Handler struct {
-	Data interface{} `json:"data"`
-	Err  *baseerror.CodeError
-}
-
-func NewHandler() *Handler {
-	return new(Handler)
-}
-
 func FormatResponse(context echo.Context, data interface{}, err error) error {
 	if err != nil {
 		codeErr, ok := baseerror.FromError(err)

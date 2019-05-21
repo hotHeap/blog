@@ -8,7 +8,9 @@ type (
 	}
 
 	User struct {
-		Uid int64 `json:"uid"`
+		Uid int64 `db:"uid" json:"uid,omitempty"`
+		Account string `db:"account" json:"account,omitempty"`
+
 	}
 )
 
