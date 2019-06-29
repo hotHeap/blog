@@ -7,7 +7,7 @@ go.sum
 # -
 *.txt
 
-
+# flutter
 
 /front/node_modules
 server/rust/target
