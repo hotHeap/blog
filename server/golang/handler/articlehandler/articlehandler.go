@@ -14,7 +14,7 @@ type ArticleHandler struct {
 }
 
 func NewArticleHandler(logic *articlelogic.ArticleLogic) *ArticleHandler {
-	return &ArticleHandler{ArticleLogic: logic,}
+	return &ArticleHandler{ArticleLogic: logic}
 }
 
 func (ah *ArticleHandler) ArticleList(context echo.Context) error {
@@ -45,7 +45,7 @@ func (ah *ArticleHandler) AddArticle(context echo.Context) error {
 }
 
 func (ah *ArticleHandler) DeleteArticle(context echo.Context) error {
-	req := new(articlelogic.NewArticleRequest)
+	req := new(articlelogic.DeleteArticleRequest)
 	if err := context.Bind(req); err != nil {
 		return context.JSON(http.StatusBadRequest, err)
 	}
@@ -54,7 +54,7 @@ func (ah *ArticleHandler) DeleteArticle(context echo.Context) error {
 }
 
 func (ah *ArticleHandler) UpdateArticle(context echo.Context) error {
-	req := new(articlelogic.NewArticleRequest)
+	req := new(articlelogic.UpdateArticleRequest)
 	if err := context.Bind(req); err != nil {
 		return context.JSON(http.StatusBadRequest, err)
 	}
